@@ -17,6 +17,7 @@ PORT = 1100
 LISTENER_LIMIT = 4
 clients = []
 ```
+> The server listens for incoming connections on IP address '127.0.0.1' and port 1100.
 
 Create a function to listen for upcoming messages from a client.
 ```python
@@ -59,6 +60,8 @@ def client_handler(client):
     threading.Thread(target=broadcast, args=(client, username, )).start()
 ```
 > This is a loop that waits for connected clients and then sends a joined chat app message that contains the username.
+
+> When the user enters a username and clicks the submit button, the `connect` function is called, which sends the username to the server using the established socket connection.
 
 ### Create main function
 ```python
@@ -156,7 +159,7 @@ def connect():
     username_textbox.config(state=tk.DISABLED)
     username_button.config(state=tk.DISABLED)
 ```
-> This is a try except block to print some connected details message to the server's message box.
+> This is a try-except block to print some connected details message to the server's message box.
 
 Create a function that will get the user's message from the message textbox.
 ```python
@@ -186,6 +189,8 @@ def listen_for_messages_from_server(client):
 > Use an infinite loop because the server will be receiving messages quite non-deterministically.
 
 Set up the GUI.
+
+The client uses Tkinter to create a simple GUI with a label, an input widget, and a submit button.
 ```python
 root = tk.Tk()
 root.geometry("400x400")
