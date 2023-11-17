@@ -219,7 +219,7 @@ message_box = scrolledtext.ScrolledText(middle_frame, font=SMALL_FONT, bg=BG_DAR
 message_box.config(state=tk.DISABLED)
 message_box.pack(side=tk.TOP)
 ```
-> You can set up your own GUI design
+> You can set up your own GUI design.
 > `message_textbox.bind("<Return>", send_message)` will allow you to bind the Enter key to a tkinter window.
 
 ### Create main function for our GUI application
