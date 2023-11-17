@@ -238,5 +238,5 @@ if __name__ == '__main__':
     main()
 ```
 
-### Chat Appp Output
+### Chat App Output
 <img width="614" alt="image" src="https://github.com/pitcza/event-driven-activity/assets/130303710/63a1fda5-b882-4b1d-8b5a-d54472981a56">
