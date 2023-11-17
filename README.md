@@ -96,6 +96,8 @@ if __name__ == '__main__':
     main()
 ```
 
+
+
 ## Client Socket (`client.py`)
 Import socket and threading, then use Tkinter, Python’s “batteries included” GUI building tool for our purpose.
 ```python
