@@ -5,7 +5,7 @@ First, create two separate files for the server (`server.py`) and the client (`c
 
 ## Server Socket
 1. Create server configuration. Add the host IP Address and port number.
-```ruby
+```python
 HOST = '127.0.0.1'
 PORT = 1100
 ```
