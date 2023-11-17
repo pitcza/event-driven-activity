@@ -166,6 +166,7 @@ def send_message(event=None):
     message_textbox.delete(0, len(message))
 ```
 > Use the event as an argument because it is implicitly passed by Tkinter when the send button on the GUI is pressed.
+
 > `message_textbox` is the input field on the GUI, and therefore we extract the message to be sent using `message = message_textbox.get()`. After that, we clear the input field and then send the message to the server, which, as we’ve seen before, broadcasts this message to all the clients.
 
 Create a function that will receive client's messages and then send it to the server's message box.
@@ -181,6 +182,7 @@ def listen_for_messages_from_server(client):
             messagebox.showerror("Error", "Message recevied from client is empty")
 ```
 > This loop sends messages to the message box with the client's username included after it waits for incoming messages.
+
 > Use an infinite loop because the server will be receiving messages quite non-deterministically.
 
 Set up the GUI
@@ -220,6 +222,7 @@ message_box.config(state=tk.DISABLED)
 message_box.pack(side=tk.TOP)
 ```
 > You can set up your own GUI design.
+
 > `message_textbox.bind("<Return>", send_message)` will allow you to bind the Enter key to a tkinter window.
 
 ### Create main function for our GUI application
