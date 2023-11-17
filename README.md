@@ -220,6 +220,7 @@ message_box.config(state=tk.DISABLED)
 message_box.pack(side=tk.TOP)
 ```
 > You can set up your own GUI design
+> `message_textbox.bind("<Return>", send_message)` will allow you to bind the Enter key to a tkinter window.
 
 ### Create main function for our GUI application
 ```python
@@ -233,3 +234,6 @@ Put in code for starting the server and listening for incoming connections
 if __name__ == '__main__':
     main()
 ```
+
+### Chat Appp Output
+<img width="614" alt="image" src="https://github.com/pitcza/event-driven-activity/assets/130303710/63a1fda5-b882-4b1d-8b5a-d54472981a56">
