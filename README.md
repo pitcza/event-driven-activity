@@ -18,7 +18,7 @@ LISTENER_LIMIT = 4
 clients = []
 ```
 
-### Create function to listen for upcoming messages from a client
+Create function to listen for upcoming messages from a client
 ```python
 def broadcast(client, username):
     while 1:
@@ -30,20 +30,20 @@ def broadcast(client, username):
             print(f"The message send from client {username} is empty")
 ```
 
-### Create function that send message to a single client
+Create function that send message to a single client
 ```python
 def send_message_to_client(client, message):
     client.sendall(message.encode())
 ```
 
-### Create a function that will send new messages to all the clients that are currently connected to the server
+Create a function that will send new messages to all the clients that are currently connected to the server
 ```python
 def send_messages_to_all(message):
     for user in clients:
         send_message_to_client(user[1], message)
 ```
 
-### Use `client_handler()` function to handle every client that will join to the server
+Use `client_handler()` function to handle every client that will join to the server
 ```python
 def client_handler(client):
     while 1:
@@ -90,7 +90,7 @@ def client_handler(client):
 ```
 > This is a loop that waits for incoming connections and as soon as it gets one, it logs the connection (prints some of the connection details) and sends the connected client a message. It stores the client’s address in the addresses dictionary and later starts the handling thread for that client.
 
-### Put in code for starting the server and listening for incoming connections
+Put in code for starting the server and listening for incoming connections
 ```python
 if __name__ == '__main__':
     main()
