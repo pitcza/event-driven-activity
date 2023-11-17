@@ -1,1 +1,1 @@
-# event-driven-activity
+# Real-Time Chat App
