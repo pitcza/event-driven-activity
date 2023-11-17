@@ -17,6 +17,49 @@ PORT = 1100
 LISTENER_LIMIT = 4
 clients = []
 ```
+
+### Create function to listen for upcoming messages from a client
+```python
+def broadcast(client, username):
+    while 1:
+        message = client.recv(2048).decode('utf-8')
+        if message != '':
+            final_msg = username + '~' + message
+            send_messages_to_all(final_msg)
+        else:
+            print(f"The message send from client {username} is empty")
+```
+
+### Create function that send message to a single client
+```python
+def send_message_to_client(client, message):
+    client.sendall(message.encode())
+```
+
+### Create a function that will send new messages to all the clients that are currently connected to the server
+```python
+def send_messages_to_all(message):
+    for user in clients:
+        send_message_to_client(user[1], message)
+```
+
+### Use `client_handler()` function to handle every client that will join to the server
+```python
+def client_handler(client):
+    while 1:
+        username = client.recv(2048).decode('utf-8')
+        if username != '':
+            clients.append((username, client))
+            prompt_message = "SERVER~" + f"{username} joined the chat app"
+            send_messages_to_all(prompt_message)
+            break
+        else:
+            print("Client username is empty")
+
+    threading.Thread(target=broadcast, args=(client, username, )).start()
+```
+> This is a loop that waits for connected clients and then sends a joined chat app message that contains the username.
+
 ### Create main function
 ```python
    def main():
@@ -46,4 +89,9 @@ clients = []
         threading.Thread(target=client_handler, args=(client, )).start()
 ```
 > This is a loop that waits for incoming connections and as soon as it gets one, it logs the connection (prints some of the connection details) and sends the connected client a message. It stores the client’s address in the addresses dictionary and later starts the handling thread for that client.
-### Create function listen for upcoming messages from a client
+
+### Put in code for starting the server and listening for incoming connections
+```python
+if __name__ == '__main__':
+    main()
+```
