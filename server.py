@@ -21,7 +21,7 @@ def broadcast(client, username):
 def send_message_to_client(client, message):
     client.sendall(message.encode())
 
-# send new message to all the clients that are currently connected to the server
+# send new messages to all the clients that are currently connected to the server
 def send_messages_to_all(message):
     for user in clients:
         send_message_to_client(user[1], message)
@@ -29,7 +29,7 @@ def send_messages_to_all(message):
 # handle client
 def client_handler(client):
     
-    # server will listen for client message that contain username
+    # server will listen for connected client and includes the username
     while 1:
         username = client.recv(2048).decode('utf-8')
         if username != '':
@@ -46,8 +46,6 @@ def client_handler(client):
 def main():
     # creating the socket object
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-    # creating a try catch block
     try:
         server.bind((HOST, PORT)) # bind the socket to a specific address and port
         print(f"Server listening on {HOST} : {PORT}")
