@@ -19,11 +19,11 @@ clients = []
 ```
 ### Create main function
 ```python
-def main():
+   def main():
 ```
 1. Include the Socket class. A socket object represents the pair of host address and port number. Use TCP sockets for this purpose, so use AF_INET and SOCK_STREAM flags.
 ```python
-server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+   server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 ```
 2. Use `bind()` method to bind the socket to a specific address and port.
 ```python
@@ -35,7 +35,7 @@ server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 ```
 3. Set the server limit.
 ```python
-server.listen(LISTENER_LIMIT)
+   server.listen(LISTENER_LIMIT)
 ```
 4. Create function that will listen to client connections.
 ```python
@@ -45,4 +45,5 @@ server.listen(LISTENER_LIMIT)
 
         threading.Thread(target=client_handler, args=(client, )).start()
 ```
+   This is a loop that waits for incoming connections and as soon as it gets one, it logs the connection (prints some of the connection details) and sends the connected client a message. It stores the client’s address in the addresses dictionary and later starts the handling thread for that client.
 ### Create function listen for upcoming messages from a client
