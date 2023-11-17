@@ -4,7 +4,7 @@ Creating a simple real-time chat app using Python sockets and Tkinter involves b
 First, create two separate files for the server (`server.py`) and the client (`client.py`).
 
 ## Server Socket (`server.py`)
-Import socket and threading.
+Import socket and threading
 ```python
 import socket
 import threading
@@ -36,14 +36,14 @@ def send_message_to_client(client, message):
     client.sendall(message.encode())
 ```
 
-Create a function that will send new messages to all the clients that are currently connected to the server
+Create a function that will send new messages to all the clients that are currently connected to the server.
 ```python
 def send_messages_to_all(message):
     for user in clients:
         send_message_to_client(user[1], message)
 ```
 
-Use `client_handler()` function to handle every client that will join to the server
+Use `client_handler()` function to handle every client that will join to the server.
 ```python
 def client_handler(client):
     while 1:
@@ -108,7 +108,7 @@ from tkinter import scrolledtext
 from tkinter import messagebox
 ```
 
-Assign styles for GUI
+Assign styles for GUI.
 ```python
 CY = '#00ABB3'
 BG_DARK = '#3C4048'
@@ -185,7 +185,7 @@ def listen_for_messages_from_server(client):
 
 > Use an infinite loop because the server will be receiving messages quite non-deterministically.
 
-Set up the GUI
+Set up the GUI.
 ```python
 root = tk.Tk()
 root.geometry("400x400")
@@ -225,14 +225,14 @@ message_box.pack(side=tk.TOP)
 
 > `message_textbox.bind("<Return>", send_message)` will allow you to bind the Enter key to a tkinter window.
 
-### Create main function for our GUI application
+### Create main function for the GUI application
 ```python
 def main():
     root.mainloop()
 ```
 > `root.mainloop()` starts GUI execution
 
-Put in code for starting the server and listening for incoming connections
+Put in code for starting the client and listening for incoming connections.
 ```python
 if __name__ == '__main__':
     main()
