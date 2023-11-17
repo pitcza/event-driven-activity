@@ -238,5 +238,13 @@ if __name__ == '__main__':
     main()
 ```
 
-### Chat App Output
+## Running the Chat App
+1. Open two terminal windows.
+2. In the first terminal, run `python server.py` to start the server.
+3. In the second terminal, run `python client.py` to start the client.
+4. Repeat step 3 for additional clients.
+
+Now you have a simple real-time chat app where clients can connect to a server and exchange messages.
+
+## Chat App Output
 <img width="614" alt="image" src="https://github.com/pitcza/event-driven-activity/assets/130303710/63a1fda5-b882-4b1d-8b5a-d54472981a56">
