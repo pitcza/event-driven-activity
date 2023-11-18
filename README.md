@@ -1,5 +1,5 @@
 # Real-Time Chat App
-Creating a simple real-time chat app using Python sockets and Tkinter involves building a server and a client, and then connecting them through a network. 
+Creating a simple real-time chat app using Python sockets and tkinter involves building a server and a client, and then connecting them through a network. 
 
 First, create two separate files for the server (`server.py`) and the client (`client.py`).
 
@@ -51,7 +51,7 @@ def client_handler(client):
         username = client.recv(2048).decode('utf-8')
         if username != '':
             clients.append((username, client))
-            prompt_message = "SERVER~" + f"{username} joined the chat app"
+            prompt_message = "SERVER~" + f"{username} joined the chat"
             send_messages_to_all(prompt_message)
             break
         else:
@@ -59,9 +59,7 @@ def client_handler(client):
 
     threading.Thread(target=broadcast, args=(client, username, )).start()
 ```
-> This is a loop that waits for connected clients and then sends a joined chat app message that contains the username.
-
-> When the user enters a username and clicks the submit button, the `connect` function is called, which sends the username to the server using the established socket connection.
+> This is a loop that waits for connected clients and then sends a joined-the-chat message to the server's message box that contains the username.
 
 ### Create main function
 ```python
@@ -102,7 +100,7 @@ if __name__ == '__main__':
 
 
 ## Client Socket (`client.py`)
-Import socket and threading, then use Tkinter, Python’s “batteries included” GUI building tool for our purpose.
+Import socket and threading, then use Tkinter, Python’s “batteries included” GUI building tool for purpose.
 ```python
 import socket
 import threading
@@ -159,7 +157,7 @@ def connect():
     username_textbox.config(state=tk.DISABLED)
     username_button.config(state=tk.DISABLED)
 ```
-> This is a try-except block to print some connected details message to the server's message box.
+> When the user enters a username and clicks the submit button, the `connect()` function is called, which has an if-else block that gets the client's username and a try-except block that sends a connected-to-the-server message to the server's message box using the established socket connection.
 
 Create a function that will get the user's message from the message textbox.
 ```python
@@ -190,7 +188,7 @@ def listen_for_messages_from_server(client):
 
 Set up the GUI.
 
-The client uses Tkinter to create a simple GUI with a label, an input widget, and a submit button.
+The client uses Tkinter to create a simple GUI with a label, frames, entry widgets, and submit buttons.
 ```python
 root = tk.Tk()
 root.geometry("400x400")
